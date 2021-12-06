@@ -1,25 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import TwitterInput from "./TwitterInput";
+import {useState} from "react";
+import TwitterTrend from "./TwitterTrend";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const [trendResult, setTrendResult] = useState([]);
+    const [isLoaded, setIsLoaded] = useState(true);
+
+    return (
+        <div className="App" style={{
+            display: 'flex',
+            flexDirection: 'column'
+        }}>
+            <TwitterInput setTrendResult={setTrendResult} setIsLoaded={setIsLoaded}/>
+            <TwitterTrend isLoaded={isLoaded} trendResult={trendResult}/>
+        </div>
+    );
 }
 
 export default App;
