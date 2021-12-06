@@ -10,12 +10,10 @@ const TwitterTrend = ({isLoaded, trendResult}) => {
             }>
                 {trendResult.map((result) => <li className="list-group-item">{result.text}</li>)}
             </ul>
-            : <div className="spinner-border text-primary" role="status" style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center'
-            }}>
-                <span className="visually-hidden">Loading...</span>
+            : <div className="d-flex justify-content-center">
+                <div className="spinner-border" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                </div>
             </div>
     )
 };
